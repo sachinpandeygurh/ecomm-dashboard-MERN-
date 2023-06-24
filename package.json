@@ -1,0 +1,20 @@
+{
+  "name": "e-dashboard",
+  "version": "1.0.0",
+  "description": "this is ecommarece dashboard for admin and user",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Full Stack Dashboard(MERN)"
+  },
+  "author": "Sachin Pandey",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22"
+  }
+}
