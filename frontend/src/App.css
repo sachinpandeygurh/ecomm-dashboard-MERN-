@@ -7,6 +7,48 @@
   pointer-events: none;
 }
 
+.nav_bar_wrapper a{
+  padding-left: 30px;
+}
+.delete{
+  background-color: #a90b0b;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.update{
+  background-color:green;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.inputBox{
+  display: block;
+  /* margin: 25px; */
+  padding: 7px;
+  /* width: 150px; */
+  border: 1px solid skyblue ;
+ 
+}
+.appButton{
+  margin: 25px;
+  padding: 10px;
+  width: 150px;
+  cursor: pointer;
+  background: #0d6efd;
+  transition: .8s background;
+
+}
+.appButton:hover{
+  color: #0d6efd !important;
+  border: 1px solid #0d6efd !important;
+  background: white;
+  font-weight: 600;
+
+
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

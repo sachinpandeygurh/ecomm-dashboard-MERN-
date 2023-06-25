@@ -1,7 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import '../App.css';
 import NavBar from './nav';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './footer';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -14,9 +16,12 @@ function App() {
         <Route path="/update" element={<h1>Update Products</h1>} />
         <Route path="/logout" element={<h1>Logout</h1>} />
         <Route path="/profile" element={<h1>Profile</h1>} />
+        <Route path="/signup" element={<SignUp/>} />
         
       </Routes>
+      <Footer/>
       </BrowserRouter>
+
     </div>
   );
 }
