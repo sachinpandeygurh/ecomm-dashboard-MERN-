@@ -4,7 +4,8 @@
   "description": "this is ecommarece dashboard for admin and user",
   "main": "index.js",
   "scripts": {
-    "test": "npm run start"
+    "test": "npm run start",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
