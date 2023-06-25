@@ -5,7 +5,7 @@
   "main": "nodemon index.js",
   "scripts": {
     "test": "npm run start",
-    "start": "nodemon",
+    "start": "nodemon server.js",
     "Server": "nodemon server"
   },
   "repository": {

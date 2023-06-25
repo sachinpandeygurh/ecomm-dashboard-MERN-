@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './footer';
 import SignUp from './SignUp';
 import PrivateRoute from './privateRoute';
+import Login from './login';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/profile" element={<h1>Profile</h1>} />
         </Route>
         <Route path="/signup" element={<SignUp/>} />
+      <Route path='/login' element={<Login/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>
