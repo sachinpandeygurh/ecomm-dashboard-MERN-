@@ -2,10 +2,11 @@
   "name": "e-dashboard",
   "version": "1.0.0",
   "description": "this is ecommarece dashboard for admin and user",
-  "main": "index.js",
+  "main": "nodemon index.js",
   "scripts": {
     "test": "npm run start",
-    "start": "nodemon"
+    "start": "nodemon",
+    "Server": "nodemon server"
   },
   "repository": {
     "type": "git",
