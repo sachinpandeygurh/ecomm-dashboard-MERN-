@@ -1,16 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-    const [name, setname]=useState('')
-    const [email, setEmail]=useState('')
-    const [password, setPassword]=useState('')
-    // console.log(name)
-    // console.log(password)
-    // console.log(email)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-    const collactData =()=>{console.log(name, email, password)}
+  const collectData = async () => {
+    let result = await fetch("http://localhost:5000/register", {
+      method: "POST",
+      body: JSON.stringify({ name, email, password }),
+      headers: { "Content-Type": "application/json" }
+    });
     
+    result = await result.json();
+    console.warn(result);
+
+    if (result) {
+      navigate("/");
+    } else {
+      alert("Something went wrong");
+    }
+  };
   return (
     <div className="register mt-5">
       <div className="container">
@@ -21,7 +33,7 @@ const SignUp = () => {
                 <h1 className="text-center">Register</h1>
                 <div className="form-group">
                   <input
-                    className="form-control inputBox my-3 " value={name} onChange={(e)=> setname (e.target.value)}
+                    className="form-control inputBox my-3 " value={name} onChange={(e)=> setName (e.target.value)}
                     type="text"
                     placeholder="What's your name?"
                   />
@@ -42,7 +54,7 @@ const SignUp = () => {
                 </div>
                 <div className="form-group">
                   <button
-                    className="form-control btn text-white appButton my-3" onClick={collactData}
+                    className="form-control btn text-white appButton my-3" onClick={collectData}
                     type="button"
                     placeholder="Submit"
                   >Submit</button>
