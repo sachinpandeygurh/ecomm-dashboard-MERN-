@@ -43,6 +43,14 @@ app.post('/login', async (req, resp) => {
     resp.send(result)
   })
   
+  app.get('/products', async(req, resp)=>{
+    const products = await Product.find()
+    if(products.length>0){
+      resp.send(products)
+    } else{
+      resp.send(result,'no data found')
+    }
+  })
 
 app.listen(5000) 
 
