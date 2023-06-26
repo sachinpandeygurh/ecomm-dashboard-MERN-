@@ -5,12 +5,19 @@ const AddProduct = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
-
+  const [error , setError] = useState(false)
   const addProduct = async () => {
+
+    if (!name || !price || !category || !company) {
+        setError(true)
+        return false;
+    }
+
     const userId = JSON.parse(localStorage.getItem("user"))._id;
+    const userName = JSON.parse(localStorage.getItem("user")).name;
     let result = await fetch("http://localhost:5000/addProduct", {
       method: "POST",
-      body: JSON.stringify({ name, price, category, company, userId }),
+      body: JSON.stringify({ name, price, category, company, userId , userName}),
       headers: {
         "Content-Type": "application/json",
       },
@@ -34,6 +41,7 @@ const AddProduct = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
+                {error && !name && <span  className="invalidInput text-danger text-left">Please enter product name</span>}
               </div>
               <div className="form-group">
                 <input
@@ -43,6 +51,8 @@ const AddProduct = () => {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
+                {error && !price && <span  className="invalidInput text-danger text-left">Please enter product price</span>}
+
               </div>
               <div className="form-group">
                 <input
@@ -52,6 +62,8 @@ const AddProduct = () => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 />
+                {error && !category && <span  className="invalidInput text-danger text-left">Please enter product category</span>}
+
               </div>
               <div className="form-group">
                 <input
@@ -61,6 +73,8 @@ const AddProduct = () => {
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                 />
+                {error && !company && <span  className="invalidInput text-danger text-left">Please enter product company name</span>}
+
               </div>
               <div className="form-group">
                 <button

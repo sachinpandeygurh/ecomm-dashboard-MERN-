@@ -3,8 +3,10 @@ const productSchema = new mongoose.Schema({
     name: String,
     price:String,
     category:String,
+    company:String,
     userId:String,
-    company:String
+    userName:String
+
 })
 
 module.exports=mongoose.model("products", productSchema);

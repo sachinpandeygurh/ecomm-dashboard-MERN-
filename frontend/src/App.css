@@ -53,6 +53,12 @@
   width: 3em;
   margin-left: -3em;
 }
+.invalidInput{
+  margin-top: -20px;
+  display: block;
+  text-align: left;
+  padding: 0 5px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
