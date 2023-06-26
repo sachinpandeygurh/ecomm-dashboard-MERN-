@@ -1,12 +1,12 @@
 {
   "name": "e-dashboard",
   "version": "1.0.0",
-  "description": "this is ecommarece dashboard for admin and user",
-  "main": "nodemon index.js",
+  "description": "this is e-commerce dashboard for admin and user",
+  "main": "index.js",
   "scripts": {
     "test": "npm run start",
-    "start": "nodemon server.js",
-    "Server": "nodemon server"
+    "start": "nodemon index.js",
+    "Server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +15,12 @@
   "author": "Sachin Pandey",
   "license": "MIT",
   "dependencies": {
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^7.3.1",
+    "mongoose": "^7.3.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.22"
   }
 }

@@ -16,9 +16,7 @@ function NavBar() {
         </li>
   
         {auth ?
-          <>  <li className="nav-item">
-          <Link className="nav-link text-success border rounded fs-3 " to="/"><span className="fw-bold p-0 m-0 text-danger text-bold">Welcome</span> {JSON.parse(auth).name}</Link>
-        </li>
+          <> 
             <li className="nav-item">
               <Link className="nav-link text-white" to="/">Products</Link>
             </li>
@@ -34,6 +32,17 @@ function NavBar() {
             <li className="nav-item">
               <Link className="nav-link text-white" to="/signup" onClick={logout}>Logout</Link>
             </li>
+
+            <li className="nav-item position-absolute end-0">
+  <Link className="nav-link text-success border rounded fs-3" to="/">
+    <span className="fw-bold p-0 m-0 text-danger">
+      Welcome
+    </span>{" "}
+    {JSON.parse(auth).name}
+  </Link>
+</li>
+
+
           </>
           :
   
