@@ -6,6 +6,7 @@ const ProductsList = () => {
 
   useEffect(() => {
     getProducts();
+    // deleteProduct();
   }, []);
 
   const getProducts = async () => {
@@ -13,7 +14,20 @@ const ProductsList = () => {
     result = await result.json();
     setProducts(result);
   };
-  //   console.warn(products);
+
+  const deleteProduct = async (id) => {
+    let result = await fetch(`http://localhost:5000/product/${id}`, {
+      method: "DELETE",
+    });
+    result = await result.json();
+    if (result) {
+    getProducts();
+      alert(`Product deleted successfully`);
+    }
+  };
+  
+
+ 
   return (
     <div className="container mt-3">
       
@@ -27,16 +41,18 @@ const ProductsList = () => {
             <th>price</th>
             <th>category</th>
             <th>company</th>
+            <th>operation</th>
           </tr>
         </thead>
         <tbody>
           {products.map((item, index) => (
-            <tr>
+            <tr key={item._id}>
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>${item.price}</td>
               <td>{item.category}</td>
               <td>{item.company}</td>
+              <td><button onClick={()=>deleteProduct(item._id)}>Delete</button></td>
             </tr>
           ))}
         </tbody>
