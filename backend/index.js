@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 require('./db/config')
 const User = require('./db/User')
+const Product=require('./db/Products')
 const app = express();
 
 app.use(express.json())
@@ -35,6 +36,12 @@ app.post('/login', async (req, resp) => {
       resp.status(500).send("Internal Server Error");
     }
   });
+
+  app.post('/addProduct', async(req, resp)=>{
+    let product = new  Product(req.body);
+    let result = await product.save()
+    resp.send(result)
+  })
   
 
 app.listen(5000) 
