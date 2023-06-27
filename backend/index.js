@@ -76,17 +76,44 @@ app.put('/product/:id', async (req, resp) => {
   resp.send(result);
 });
 
+// app.get('/search/:key', async (req, resp) => {
+//   const result1 = await Product.find({
+//     "$or":[
+//       {name:{$regex:req.params.key}}
+//     ] 
+//   })
+//   const result2 = await Product.find({
+//     "$or":[
+//       {price:{$regex:req.params.key}}
+//     ] 
+//   })
+//   const result3 = await Product.find({
+//     "$or":[
+//       {category:{$regex:req.params.key}}
+//     ] 
+//   })
+//   const result4 = await Product.find({
+//     "$or":[
+//       {company:{$regex:req.params.key}}
+//     ] 
+//   })
+//   const result = result1 || result2 || result3 || result4
+//   resp.send(result)
+// });
+
 app.get('/search/:key', async (req, resp) => {
-  const result = await Product.find({
-    "$or":[
-      {name:{$regex:req.params.key}},
-      {price:{$regex:req.params.key}},
-      {category:{$regex:req.params.key}},
-      {company:{$regex:req.params.key}}
+  const key = req.params.key;
+  const results = await Product.find({
+    $or: [
+      { name: { $regex: key } },
+      { price: { $regex: key } },
+      { category: { $regex: key } },
+      { company: { $regex: key } }
     ]
-  })
-  resp.send(result)
+  });
+  resp.send(results);
 });
+
 
 
 app.listen(5000) 

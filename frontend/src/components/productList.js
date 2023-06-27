@@ -46,14 +46,14 @@ const ProductsList = () => {
       <input
         className="searchProductBox my-1 rounded"
         type="text"
-        placeholder="Search here.."
+        placeholder="Search Product here.."
         onChange={searchHandle}
       />
       <Table striped bordered hover x-2>
         <thead>
           <tr className="table-primary">
             <th scope="col">Sno.</th>
-            <th scope="col">Name</th>
+            <th scope="col">Product</th>
             <th scope="col">Price</th>
             <th scope="col">Category</th>
             <th scope="col">Company</th>
