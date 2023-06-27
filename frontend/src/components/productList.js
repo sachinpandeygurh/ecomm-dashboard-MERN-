@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+import { Link } from "react-router-dom";
 
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
@@ -21,27 +22,24 @@ const ProductsList = () => {
     });
     result = await result.json();
     if (result) {
-    getProducts();
+      getProducts();
       alert(`Product deleted successfully`);
     }
   };
-  
 
- 
   return (
     <div className="container mt-3">
-      
-        <h2>Products List</h2>
-      
+      <h2>Products List</h2>
+
       <Table striped bordered hover x-2>
         <thead>
-          <tr>
-            <th>sno.</th>
-            <th>name</th>
-            <th>price</th>
-            <th>category</th>
-            <th>company</th>
-            <th>operation</th>
+          <tr className="table-primary">
+            <th scope="col">Sno.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Company</th>
+            <th scope="col">Operation</th>
           </tr>
         </thead>
         <tbody>
@@ -52,7 +50,20 @@ const ProductsList = () => {
               <td>${item.price}</td>
               <td>{item.category}</td>
               <td>{item.company}</td>
-              <td><button onClick={()=>deleteProduct(item._id)}>Delete</button></td>
+              <td>
+                <button
+                  className="btn btn-sm border rounded text-danger mx-1"
+                  onClick={() => deleteProduct(item._id)}
+                >
+                  Delete
+                </button>
+                <Link
+                  className="btn btn-sm border rounded text-success mx-1"
+                  to={`/update/${item._id}`}
+                >
+                  Update
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>

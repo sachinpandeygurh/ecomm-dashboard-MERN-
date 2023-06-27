@@ -57,5 +57,16 @@ app.delete('/product/:id', async (req, resp) => {
   resp.send(result);
 });
 
+app.get('/product/:id', async (req, resp) => {
+  const result = await Product.findOne({ _id: req.params.id });
+  if (result) {
+    resp.send(result); 
+  } else{
+    resp.send('Result: not Found');
+  }
+});
+
+
+
 app.listen(5000) 
 
