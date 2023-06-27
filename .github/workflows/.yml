@@ -1,0 +1,38 @@
+name: frontend
+version: 0.1.0
+description: My React project
+
+frontend:
+  stages:
+    - build
+    - test
+    - deploy
+
+  build:
+    image: node:14
+    commands:
+      - npm install
+      - npm run build
+
+  test:
+    image: node:14
+    commands:
+      - npm install
+      - npm test
+
+  deploy:
+    image: node:14
+    commands:
+      - npm install
+      - npm run build
+      - npm run deploy
+
+  artifacts:
+    files:
+      - build/**
+    discard-paths: yes
+
+  cache:
+    paths:
+      - node_modules/**/*
+
