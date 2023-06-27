@@ -59,6 +59,15 @@
   text-align: left;
   padding: 0 5px;
 }
+.searchProductBox{
+  left: -34.5%;
+  position: relative;
+  width: 400px;
+  /* margin: 2em; */
+  height: 40px;
+  border: 1px solid skyblue;
+  padding-left: 1em;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
